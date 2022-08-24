@@ -1,8 +1,10 @@
 ﻿using Console._0_TipoValor;
+using Console._1_TipoReferencia;
 using Console._99_Exercicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +24,20 @@ namespace Console
 
             //new _000Cadastro().Cadastro();
 
-            TipoNumerico3.Executa();
+            //TipoNumerico3.Executa();
+
+            //TipoBooleano.Executa();
+
+            //Enumeradores.Executa();
+
+            //Enumeradores2.Executa();
+
+            //Estruturas.Executa();
+
+            //System.Console.WriteLine(pessoaFisica.Saudacao()); 
+
+            TestaPessoa.ExecutaFisica();
+            TestaPessoa.ExecutaJuridica();
 
             System.Console.ReadLine();
         }

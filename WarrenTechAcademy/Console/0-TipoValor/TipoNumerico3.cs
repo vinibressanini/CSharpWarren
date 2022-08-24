@@ -31,6 +31,13 @@ namespace Console._0_TipoValor
 
             System.Console.WriteLine($"{n1 + n2} - {result}");
             System.Console.WriteLine($"{n1 + n2 == result}");
+
+            decimal n1d = 10.1m;
+            decimal n2d = 20.2m;
+            decimal resultd = 30.3m;
+
+            System.Console.WriteLine($"{n1d + n2d} - {resultd}");
+            System.Console.WriteLine($"{n1d + n2d == resultd}");
         }
     }
 }
