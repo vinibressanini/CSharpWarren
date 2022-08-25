@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Console._1_TipoReferencia
+{
+    internal class Cachorro : Animal
+    {
+        public Cachorro(string nome, double peso) : base(nome, peso)
+        {
+        }
+
+        public override string FazerSom()
+        {
+            return "AU";
+        }
+    }
+}

@@ -36,8 +36,12 @@ namespace Console
 
             //System.Console.WriteLine(pessoaFisica.Saudacao()); 
 
-            TestaPessoa.ExecutaFisica();
-            TestaPessoa.ExecutaJuridica();
+            //TestaPessoa.ExecutaFisica();
+            //TestaPessoa.ExecutaJuridica();
+
+            //TestaPessoa.ExecutaPessoa();
+
+            TestaAnimal.ExecutaAnimal();
 
             System.Console.ReadLine();
         }

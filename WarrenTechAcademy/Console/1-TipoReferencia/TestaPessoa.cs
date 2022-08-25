@@ -7,7 +7,31 @@ using System.Threading.Tasks;
 namespace Console._1_TipoReferencia
 {
     internal class TestaPessoa
+
     {
+        public static void ExecutaPessoa()
+        {
+            Pessoa p = new Pessoa("Vinicius", "Oliveira");
+            Pessoa pf = new PessoaFisica("Vinicius", "Oliveira", "12312312312");
+            Pessoa pj = new PessoaJuridica("Vinicius", "Oliveira", "123457891212");
+
+            PessoaFisica pf2 = (PessoaFisica)pf;
+            PessoaJuridica pj2 = (PessoaJuridica)pj;
+            
+            BaseRepository<Pessoa> repo = new BaseRepository<Pessoa>();
+            repo.Create(p);
+            repo.Create(pj2);
+            repo.Create(pf2);
+
+            foreach (var pessoa in repo.Read())
+            {
+                System.Console.WriteLine(pessoa.Saudacao());
+            }
+
+        }
+
+
+
         public static void ExecutaFisica()
         {
             PessoaFisica pessoaFisica = new PessoaFisica("Vinicius", "Bressanini", "12345678910");
@@ -47,5 +71,6 @@ namespace Console._1_TipoReferencia
             }
 
         }
+
     }
 }

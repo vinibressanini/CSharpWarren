@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Console._1_TipoReferencia
 {
-    internal class PessoaFisicaRepository : BaseRepository<PessoaFisica>
+    internal class BaseModel
     {
-      
+        public int Id { get; set; }
     }
 }

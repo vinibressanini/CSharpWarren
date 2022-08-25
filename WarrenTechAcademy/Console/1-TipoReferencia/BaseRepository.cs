@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace Console._1_TipoReferencia
 {
-    internal class BaseRepository : IRepository
+    internal class BaseRepository<T> : IRepository<T> where T : BaseModel
     {
 
-        List<Pessoa> pessoas;
+        List<T> pessoas;
 
         public BaseRepository()
         {
-            this.pessoas = new List<Pessoa>();
+            this.pessoas = new List<T>();
         }
-        public string Create(Pessoa p)
+        public virtual string Create(T p)
         {
             this.pessoas.Add(p);
-            return $"Pessoa: {p.Nome} Salva Com Sucesso";
+            return $"O dado de id: {p.Id} foi salvo com sucesso";
         }
 
 
-        public List<Pessoa> Read()
+        public virtual List<T> Read()
         {
             return pessoas;
         }
 
-        public string Update(Pessoa p)
+        public virtual string Update(T p)
         {
-            return $"Pessoa: {p.Nome} Atualizada com Sucesso";
+            return $"O dado de id: {p.Id} foi atualizado com sucesso";
         }
-        public string Delete(int id)
+        public virtual string Delete(int id)
         {
-            return $"Pessoa Com Id: {id} Deletada com Sucesso";
+            return $"O dado com com id: {id} foi deletada com sucesso";
         }
     }
 }
