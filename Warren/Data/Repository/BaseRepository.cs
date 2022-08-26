@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using Data.Context;
+using Data.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +10,55 @@ namespace Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseModel
     {
-        public string Create(T model)
+        public virtual List<T> GetAll()
         {
-            return "Criado com Sucesso";        }
+            List<T> animals = new List<T>();
 
-        public string Delete(int id)
-        {
-            return "Deletado com Sucesso";        }
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                animals = warrenContext.Set<T>().ToList();
+            }
 
-        public List<T> GetAll()
-        {
-            List<T> values = new List<T>();
-            return values;
+            return animals;
         }
 
-        public T GetById(int id)
+        public virtual string Create(T model)
+        {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Set<T>().Add(model);
+                warrenContext.SaveChanges();
+            }
+            return "Criado";
+
+        }
+        public virtual string Delete(int id)
+        {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Entry<T>(this.GetById(id)).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                warrenContext.SaveChanges();
+            }
+            return "Deletado com Sucesso";
+        }
+
+        public virtual T GetById(int id)
         {
             T model = null;
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Set<T>().Find(id);
+            }
             return model;
         }
 
-        public string Update(T model)
+        public virtual string Update(T model)
         {
+            using (WarrenContext warrenContext = new WarrenContext())
+            {
+                warrenContext.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                warrenContext.SaveChanges();
+            }
             return "Alterado com Sucesso";
         }
     }
