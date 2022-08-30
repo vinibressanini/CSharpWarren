@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return repo.Update(model);
         }
 
-        [HttpDelete]
+        [HttpDelete()]
         public string Delete(int id)
         {
             return repo.Delete(id);

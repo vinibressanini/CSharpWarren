@@ -47,7 +47,7 @@ namespace Data.Repository
             T model = null;
             using (WarrenContext warrenContext = new WarrenContext())
             {
-                warrenContext.Set<T>().Find(id);
+                model = warrenContext.Set<T>().Find(id);
             }
             return model;
         }
